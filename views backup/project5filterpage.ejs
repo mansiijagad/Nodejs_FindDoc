@@ -2,13 +2,12 @@
 <html>
 <head>
 <link href="/images/doctor2.css" rel="stylesheet" type="text/css" />
-<link href="/images/doctor3.css" rel="stylesheet" type="text/css" />
 <link href="/images/project5style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body style="background-color : #89cff0">
+<body>
 <nav class="navbar navbar-inverse  navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,40 +18,39 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">FIND MY DOCTOR</a>
+      <a class="navbar-brand" href="/">FindaDoc</a>
     </div>
-</div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ 
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
 <br><br><br>
 
-<h1 class="head">FIND MY DOCTOR</h1>
-<h3 class="head">Search for local doctors</h3>
+<h2>Filter Doctors</h2>  
 
-<div class='container'>
-  
-<form>
+<form method='post' action='/filtered'>
 
-  <h3 class='add'>Share medical record</h3>
-  <hr>
+  Gender:<br>
+  <input type='checkbox' name='gender' value='Male'>Male
+  <input type='checkbox' name='gender' value='Fmale'>Female
+  <br><br>
 
-  <div class="form-group">
-  <span class="heading"> Receiver's mobile number</span>
-  <input type="text" name="rnumber" class='form-control'>
-  </div>
+  Consultation Fee:<br>
+  <input type="radio" name='fee' value='Free'>Free<br>
+  <input type="radio" name='fee' value='1-200'>1-200<br>
+  <input type="radio" name='fee' value='201-500'>201-500<br>
+  <input type="radio" name='fee' value='500+'>500+<br>
+  <br><br>
 
-  <div class="form-group">
-  <span class="heading"> Receiver's name</span>
-  <input type="text" name="rname" class='form-control'><br><br>
-  <button type="submit" class="btn btn-primary">Share</button>
+  <input type="submit" class='btn btn-info' value="Filter"><br>
 
 </form>
-</div>
 
-<div class='container'>
-<form method="post" action="/record3">
-  <button type="submit" class="btn btn-danger">Cancel</button>
-</form>
-</div>
-
-</body> 
+</body>
 </html>

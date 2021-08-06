@@ -8,11 +8,9 @@
 <link href="/images/doctor2.css" rel="stylesheet" type="text/css" />
 <link href="/images/project5style.css" rel="stylesheet" type="text/css" />
 </head>
-<body >
-  <!-- style=" background-color: #e8bfaf ;" -->
-  <!-- style="background-color : #89cff0" -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-  <a class="navbar-brand" href="/">FIND MY DOCTOR</a>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+  <a class="navbar-brand" href="/">FindDoc</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,10 +22,10 @@
       <li class="nav-item">
         <a class="nav-link" href="/records">View Medical Records</a>
       </li>
-      <!-- <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="/tests">Book Tests</a>
-      </li> -->
-      <!-- <li class="nav-item dropdown">
+      </li>
+      <li class="nav-item dropdown">
        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           All Filters
       </a>
@@ -75,37 +73,32 @@
         </form>
         </div>
 
-      </li> -->
+      </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          User
+          Admin
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/adddoctors">Add Doctor's profile</a>
-          <!-- <a class="dropdown-item" href="/addcategory">Add Category</a> -->
+          <a class="dropdown-item" href="/adddoctors">Add Doctors</a>
+          <a class="dropdown-item" href="/addcategory">Add Category</a>
         </div>
       </li>
     </ul>
   </div>
 </nav>
-
-<div class="category-div">
-  <br><br><br>
-<h3 class="chead"><b>Categories</b></h3>
+<br><br><br>
+<h3 class="chead">Categories</h3>
 <br>
 <% for(var j=0;j<categories.length;j++){ %>
 	<span><a href="/doctors/<%= categories[j].category  %>"><span class='li1'><%= categories[j].category %></span></a></span>
 <% } %>
-<br><br><br>
-</div>
-<!-- <h1 class="head">FIND MY DOCTOR</h1>
-<h3 class="head">Search for doctors</h3> -->
-<br><br>
-<h2 class="browse">Available Doctors</h2>  
-<br>
+<h1 class="head">FindaDoc</h1>
+<h3 class="head">Search for local doctors</h3>
+
+<h2 class="browse">Browse Doctors</h2>  
 <% if(doctors.length>0) { %>      
-  <table class="table table-dark">
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th>Name</th>

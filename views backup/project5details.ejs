@@ -1,18 +1,16 @@
 <!doctype html>
 <html>
 <head>
-<link href="/images/doctor2.css" rel="stylesheet" type="text/css" />
-<link href="/images/doctorbtnwidth.css" rel="stylesheet" type="text/css" />
 <link href="/images/style2.css" rel="stylesheet" type="text/css" />
+<link href="/images/doctor4.css" rel="stylesheet" type="text/css" />
 <link href="/images/project5style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</head>
-<body style="background-color : #89cff0">
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
-  <a class="navbar-brand" href="/">FIND MY DOCTOR</a>
+  <a class="navbar-brand" href="/">FindDoc</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -22,55 +20,55 @@
         <a class="nav-link" href="/browse">Browse Doctors</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/records">View Medical Records</a>
+        
+        <a class="nav-link" href="/">Chat or Contact</a> 
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="/tests">Book Tests</a>
-      </li> -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Admin
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/adddoctors">Add Doctors</a>
-          <!-- <a class="dropdown-item" href="/addcategory">Add Category</a> -->
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="/bookingform/<%= doctor.pname %>">Make appointment</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href='/share_exp/<%= doctor._id %>'>Share Experience</a>
       </li>
     </ul>
   </div>
 </nav>
-<br><br>
+<br><br><br>
 <h3 class="chead">Categories</h3>
 <br>
 <% for(var j=0;j<categories.length;j++){ %>
   <span><a href="/doctors/<%= categories[j].category  %>"><span class='li1'><%= categories[j].category %></span></a></span>
 <% } %>
-<br><br>
-<h1 class="head">FIND MY DOCTOR</h1>
-<h3 class="head">Search for doctors</h3>
+<h1 class="head">FindaDoc</h1>
+<h3 class="head">Search for local doctors</h3>
 
-<div class='container'>
-<h3>  Upload your record</h3>
-<br><br>
-<form method="post" action="/record4">
-  <!-- <input type="text" name="title" placeholder="Title"><br><br> -->
-  <input type="file" name="title" placeholder="record"><br><br>
-  <input type="text" name="fullname" placeholder="description" ><br><br>
-  <!-- value= '<%= fullname %>' -->
-  <input type="text" name="date" placeholder="Date"><br><br>
-  Type of Record:<br>
-  <select name="type">
-    <option value="Report">Report</option>
-    <option value="Prescription">Prescription</option>
-    <option value="Invoice">Invoice</option>
-  </select>
-  <br><br>
- <button type="submit" class="btn btn-success button">Done</button>
+<div class="container">
+<h2 class="hheading"><%= doctor.pname %></h2>
+<p class="li1">Physician Information</p>
+<p class="li1">Full Name: <%= doctor.name %></p>
+<p class="li1">Contact Number: <%= doctor.phnnumber %></p>
+<p class="li1">Accepting New Patients:<%= doctor.accepting %></p>
+<p class="li1">Speciality:<%= doctor.category %></p>
+<p class="li1">Graduation Date:<%= doctor.year %></p>
+<p class="li1">Practice Information</p>
+<p class="li1">Votes:<%= doctor.votes %></p>
+<p class="li1">Address:<%= doctor.address %></p>
 
-</form><br>
-<form method="post" action="/record3">
-  <button type="submit" class="btn btn-danger button">Cancel</button>
-</form>
+<% if(doctor.exp.length!=0) { 
+for(var i=0;i<doctor.exp.length;i++) { %>
+<div class="card">
+  <h5 class="card-header">Visited for - <%= doctor.exp[i].issue %></h5>
+  <div class="card-body">
+    <h5 class="card-title"><%= doctor.exp[i].name %></h5>
+    <% if(doctor.exp[i].recommend=="yes") { %>
+    <p class="card-text">I recommend the doctor</p>
+    <% } else { %>
+    <p class="card-text">I do not recommend the doctor</p>
+    <% } %>
+    <p class="card-text"><%= doctor.exp[i].experience %></p>
+  </div>
 </div>
-</body> 
+<% }} %>
+
+</div>
+</body>
 </html>

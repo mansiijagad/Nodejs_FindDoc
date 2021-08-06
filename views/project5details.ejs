@@ -8,9 +8,9 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
-  <a class="navbar-brand" href="/">FindDoc</a>
+<body style="background-color : #89cff0">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+  <a class="navbar-brand" href="/">FIND MY DOCTOR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,13 +19,13 @@
       <li class="nav-item active">
         <a class="nav-link" href="/browse">Browse Doctors</span></a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         
         <a class="nav-link" href="/">Chat or Contact</a> 
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a class="nav-link" href="/bookingform/<%= doctor.pname %>">Make appointment</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" href='/share_exp/<%= doctor._id %>'>Share Experience</a>
       </li>
@@ -33,15 +33,20 @@
   </div>
 </nav>
 <br><br><br>
+<div>
 <h3 class="chead">Categories</h3>
 <br>
 <% for(var j=0;j<categories.length;j++){ %>
   <span><a href="/doctors/<%= categories[j].category  %>"><span class='li1'><%= categories[j].category %></span></a></span>
 <% } %>
-<h1 class="head">FindaDoc</h1>
-<h3 class="head">Search for local doctors</h3>
+</div>
+<!-- <h1 class="head">FIND MY DOCTOR</h1>
+<h3 class="head">Search for doctors</h3> -->
 
-<div class="container">
+<br><br>
+<div style="background-color: black;">
+  <br><br><br>
+<div class="container" >
 <h2 class="hheading"><%= doctor.pname %></h2>
 <p class="li1">Physician Information</p>
 <p class="li1">Full Name: <%= doctor.name %></p>
@@ -49,8 +54,9 @@
 <p class="li1">Accepting New Patients:<%= doctor.accepting %></p>
 <p class="li1">Speciality:<%= doctor.category %></p>
 <p class="li1">Graduation Date:<%= doctor.year %></p>
-<p class="li1">Practice Information</p>
-<p class="li1">Votes:<%= doctor.votes %></p>
+<p class="li1">Fees:<%= doctor.fee %></p>
+<!-- <p class="li1">Practice Information</p> -->
+<!-- <p class="li1">Votes:<%= doctor.votes %></p> -->
 <p class="li1">Address:<%= doctor.address %></p>
 
 <% if(doctor.exp.length!=0) { 
@@ -68,7 +74,7 @@ for(var i=0;i<doctor.exp.length;i++) { %>
   </div>
 </div>
 <% }} %>
-
+</div>
 </div>
 </body>
 </html>

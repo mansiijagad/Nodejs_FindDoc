@@ -9,9 +9,9 @@
 <link href="/images/doctorcomplexform.css" rel="stylesheet" type="text/css" />
 <link href="/images/project5style.css" rel="stylesheet" type="text/css" />
 </head>
-<body style="background-color : #89cff0">
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
-  <a class="navbar-brand" href="/">FIND MY DOCTOR</a>
+  <a class="navbar-brand" href="/">FindDoc</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -22,17 +22,17 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/records">View Medical Records</a>
-      <!-- </li>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/tests">Book Tests</a>
-      </li> -->
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Admin
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="/adddoctors">Add Doctors</a>
-          <!-- <a class="dropdown-item" href="/addcategory">Add Category</a> -->
+          <a class="dropdown-item" href="/addcategory">Add Category</a>
         </div>
       </li>
     </ul>
@@ -45,8 +45,8 @@
 	<span><a href="/doctors/<%= categories[j].category  %>"><span class='li1'><%= categories[j].category %></span></a></span>
 <% } %>
 <br><br>
-<h1 class="head">FIND MY DOCTOR</h1>
-<h3 class="head">Search for doctors</h3>
+<h1 class="head">FindaDoc</h1>
+<h3 class="head">Search for local doctors</h3>
 <br><br>
 <% if(typeof msgs != 'undefined') {
 if(msgs.length > 0) { 

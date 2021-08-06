@@ -73,7 +73,7 @@ var DoctorSchema = new mongoose.Schema({
 	zipcode:Number,
 	phnnumber:String,
 	fee:String,
-	votes:Number,
+	//votes:Number,
 	gender:String,
 	exp : Array,
 	//msgs : Array
@@ -285,14 +285,18 @@ app.get('/adddoctors',function(req,res){
 
 	res.render('project5adddoctors');
 });
+app.get('/login',function(req,res){
+
+	res.render('login');
+});
 
 app.post('/adddoctors',urlencodedParser,function(req,res){
     
     req.checkBody('name','Name should be atleast 3 characters long').isLength({min:3});
 	req.checkBody('phnnumber','number is required').isMobilePhone();
 	req.checkBody('state','State is required').isEmpty();
-	req.checkBody('category','Category is required').isEmpty();
-	req.checkBody('city','City is required').isEmpty();
+	// req.checkBody('category','Category is required').isEmpty();
+	// req.checkBody('city','City is required').isEmpty();
     let errors = req.validationErrors();
 	if(errors){
 			res.render('project5errors',{errors:errors});
